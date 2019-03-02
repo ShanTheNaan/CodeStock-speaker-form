@@ -1,8 +1,3 @@
-.form-title
-{
-    /*text-align: center;*/
-}
-
 textarea.materialize-textarea
 {
     height: 6rem;
@@ -28,10 +23,11 @@ fieldset
     align-items: center;
 }
 
-.no-vertical-margin
+.name-text
 {
-    margin-top: 0%;
-    margin-bottom: 0%;
+    margin: 0%;
+    padding: 0%;
+    border: 0%;
 }
 
 .top-margin-2
