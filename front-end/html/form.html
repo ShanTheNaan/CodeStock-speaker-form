@@ -3,32 +3,36 @@
     <head>
         <!-- Compiled and minified CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="../css/form.css">
 
         <!-- Compiled and minified JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="../javascript/form.js"></script>
+
         <title>Feedback Form</title>
     </head>
     
     <body>
-        <div class="title row">
-            <span class="col s2">
+        <div class="title">
+            <span class="container">
                 <img src="../images/cslogow.png">
             </span>
         </div>
 
         <div class="row">
             <form class="container" action="#">
-                <h1 class="form-title row" id="talk-title">(Talk's Title)</h1>
-                <div class="row">
+                <h1 class="form-title row" style="margin-top:1%;" id="talk-title">Title</h1>
+                <div class="row no-vertical-margin">
                     <div class="input-field col s6">
                         <input id="guest_name" type="text" class="validate">
                         <label for="guest_name">Your Name</label>
+                        <span class="helper-text">Required to be entered in drawing</span>
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row top-margin-3">
                     <fieldset>
                         <Legend>Session review for speaker</Legend>
                         <label>
@@ -54,7 +58,7 @@
                     </fieldset>
                 </div>
 
-                <div class="row">
+                <div class="row top-margin-3">
                     <fieldset>
                         <legend>Session review for content</legend>
                         <label>
@@ -80,7 +84,7 @@
                     </fieldset>
                 </div>
 
-                <div class="row">
+                <div class="row top-margin-4">
                     <fieldset>
                         <div class="input-field col s12">
                             <textarea id="talk-comment" class="materialize-textarea" data-length="120"></textarea>
@@ -89,10 +93,10 @@
                     </fieldset>
                 </div>
                 
-                <div class="row">
-                    <div class="">
-
-                    </div>
+                <div class="row right-align">
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                        <i class="material-icons right">send</i>
+                    </button>
                 </div>
             </form>
         </div>
