@@ -3,13 +3,98 @@
     <head>
         <!-- Compiled and minified CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link rel="stylesheet" href="../css/form.css">
 
         <!-- Compiled and minified JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         
+        <title>Feedback Form</title>
     </head>
     
     <body>
+        <div class="title row">
+            <span class="col s2">
+                <img src="../images/cslogow.png">
+            </span>
+        </div>
 
+        <div class="row">
+            <form class="container" action="#">
+                <h1 class="form-title row" id="talk-title">(Talk's Title)</h1>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="guest_name" type="text" class="validate">
+                        <label for="guest_name">Your Name</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <fieldset>
+                        <Legend>Session review for speaker</Legend>
+                        <label>
+                                <input class="with-gap" type="radio" id="speaker-rating-1" name="speaker-ratings" />
+                                <span>Poor</span>
+                            </label>
+                            <label>
+                                <input class="with-gap" type="radio" id="speaker-rating-2" name="speaker-ratings" />
+                                <span>Fair</span>
+                            </label>
+                            <label>
+                                <input class="with-gap" type="radio" id="speaker-rating-3" name="speaker-ratings" />
+                                <span>Neutral</span>
+                            </label>
+                            <label>
+                                <input class="with-gap" type="radio" id="speaker-rating-4" name="speaker-ratings" />
+                                <span>Good</span>
+                            </label>
+                            <label>
+                                <input class="with-gap" type="radio" id="speaker-rating-5" name="speaker-ratings" />
+                                <span>Exceptional</span>
+                            </label>                        
+                    </fieldset>
+                </div>
+
+                <div class="row">
+                    <fieldset>
+                        <legend>Session review for content</legend>
+                        <label>
+                            <input class="with-gap" type="radio" id="content-rating-1" name="content-ratings" />
+                            <span>Poor</span>
+                        </label>
+                        <label>
+                            <input class="with-gap" type="radio" id="content-rating-2" name="content-ratings" />
+                            <span>Fair</span>
+                        </label>
+                        <label>
+                            <input class="with-gap" type="radio" id="content-rating-3" name="content-ratings" />
+                            <span>Neutral</span>
+                        </label>
+                        <label>
+                            <input class="with-gap" type="radio" id="content-rating-4" name="content-ratings" />
+                            <span>Good</span>
+                        </label>
+                        <label>
+                            <input class="with-gap" type="radio" id="content-rating-5" name="content-ratings" />
+                            <span>Exceptional</span>
+                        </label>
+                    </fieldset>
+                </div>
+
+                <div class="row">
+                    <fieldset>
+                        <div class="input-field col s12">
+                            <textarea id="talk-comment" class="materialize-textarea" data-length="120"></textarea>
+                            <label for="talk-comment">Comment/ Feedback</label>
+                        </div>
+                    </fieldset>
+                </div>
+                
+                <div class="row">
+                    <div class="">
+
+                    </div>
+                </div>
+            </form>
+        </div>
     </body>
 </html>

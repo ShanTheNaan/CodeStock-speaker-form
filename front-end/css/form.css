@@ -1,0 +1,28 @@
+.form-title
+{
+    /*text-align: center;*/
+}
+
+textarea.materialize-textarea
+{
+    height: 6rem;
+}
+
+textarea
+{
+    width: 500px;
+    height: 150px;
+}
+
+fieldset
+{
+    /*border: 0;*/
+}
+
+.title {
+    display: flex;
+    background-color: rgb(66, 106, 159);
+    width: 100vw;
+    height: 12vh;
+    align-items: center;
+}
