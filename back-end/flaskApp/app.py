@@ -12,10 +12,13 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['SESSION_TYPE'] = 'filesystem'
 
+#TODO: this is simulating different talks:
+TALKS = ['Talk0', 'Talk1', 'Talk2', 'Talk3']
 
 @app.route("/")
 def main():
-  return "Hello, world!"
+  return render_template("index.html") 
+
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -52,6 +55,10 @@ def upload_file():
         else:
             flash('Incorrect File Type: Excpected .csv')
     return render_template("upload.html")
+
+@app.route('/admin')
+def serve_admin():
+  return render_template("admin.html")
 
 #
 #@app.route('post/<variable>', methods=['GET'])
