@@ -19,16 +19,17 @@ function displayEvents() {
     document.getElementById("events").classList.add("active");
     document.getElementById("upload").classList.remove("active");
 
-    createCard("na lcs lit", "my house", "any", "123");
-    createCard("lck sux", "korea", "never", "093");
-    createCard("LEC lit", "neverland", "12:12", "10294");
+    createCard("na lcs lit", "mike mee", "my house", "any", "123");
+    createCard("lck sux", "nick bruh", "korea", "never", "093");
+    createCard("LEC lit", "rando lando", "neverland", "12:12", "10294");
 }
 
-function createCard (title, location, time, uid) {
+function createCard (title, speaker, location, time, uid) {
     var outterDiv = document.createElement("div");
     var card = document.createElement("div");
     var cardContent = document.createElement("div");
     var cardTitle = document.createElement("span");
+    var speak = document.createElement("p");
     var loc = document.createElement("p");
     var date = document.createElement("p");
     var cardAction = document.createElement("div");
@@ -41,15 +42,17 @@ function createCard (title, location, time, uid) {
     cardTitle.className += "card-title";
     cardTitle.innerText += title;
     cardAction.className += "card-action";
+    speak.innerHTML = speaker;
     loc.innerText = location;
     date.innerText = time;
     qrlink.innerText = "QR-Code";
-    qrlink.href = "qrCode.html?uid="+uid+"&title="+title;
+    qrlink.href = "qrCode.html?uid="+uid+"&title="+title+"&speaker="+speaker+"&location="+location;
     fform.innerText = "Feedback Form";
 
     cardAction.appendChild (qrlink);
     cardAction.appendChild (fform);
     cardContent.appendChild (cardTitle);
+    cardContent.appendChild (speak);
     cardContent.appendChild (loc);
     cardContent.appendChild (date);
     card.appendChild (cardContent);
