@@ -62,17 +62,37 @@ def upload_file():
     return render_template("admin.html")
 
 
+@app.route('/feedback/<int:uid>')
+def give_feedback(uid):
+  query = "SELECT bt.TalkId, tt.EventTitle, tt.EventLocation, tt.EventTime,\
+    st.FirstName, st.LastName FROM bridge_table bt INNER JOIN talk_table tt \
+    ON tt.TalkId = bt.TalkId INNER JOIN speaker_table st ON st.SpeakerId = bt.SpeakerId"
+
+  rows = mysql_obj.query_db(query)
+  for row in rows:
+    if row[0] == uid: break
+
+  return str(uid)
+
+
 @app.route('/events')
 def display_events():
   talkStuff = {}
-  query = "SELECT tt.TalkId, tt.EventTitle, tt.EventTime, tt.EventLocation, bt.SpeakerId, \
-    st.FirstName, st.LastName from talk_table tt Inner Join bridge_table bt ON tt.TalkId = \
-    bt.SpeakerId Inner Join speaker_table st ON bt.SpeakerId = st.SpeakerId" 
+  query = "SELECT bt.TalkId, tt.EventTitle, tt.EventLocation, tt.EventTime,\
+    st.FirstName, st.LastName FROM bridge_table bt INNER JOIN talk_table tt \
+    ON tt.TalkId = bt.TalkId INNER JOIN speaker_table st ON st.SpeakerId = bt.SpeakerId"
   rows = mysql_obj.query_db(query)
+  prev_uid = -1
   for row in rows:
-    talkStuff[row[0]] = [elem for elem in row[1:]]
-    print(talkStuff[row[0]])
-    print(type(row))
+    print(row)
+    print(type(row[0]), type(prev_uid))
+    if row[0] != prev_uid:
+      talkStuff[row[0]] = [elem for elem in row[1:]]
+      talkStuff[row[0]][-2] += ' ' + talkStuff[row[0]][-1]
+      del talkStuff[row[0]][-1]
+    else:
+      talkStuff[row[0]].append(row[-2] + ' ' + row[-1])
+    prev_uid = row[0]
 
   return jsonify(talkStuff)
 
