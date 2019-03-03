@@ -64,7 +64,7 @@ def upload_file():
 
 @app.route('/admin/speaker_comments')
 def display_speaker_comments():
-  pass
+  return render_template("feedback_display.html")
 
 
 @app.route('/feedback/<int:uid>', methods=['GET', 'POST'])

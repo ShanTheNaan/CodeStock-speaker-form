@@ -48,7 +48,7 @@ function createCard (title, speaker, location, time, uid) {
     fform.innerText = "Form";
     fform.href = "feedback/"+uid;
     feed.innerText = "Feedback";
-    feed.href = "";
+    feed.href = "/admin/speaker_comments";
 
 
     cardAction.appendChild (qrlink);
