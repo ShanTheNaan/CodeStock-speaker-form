@@ -77,15 +77,16 @@ def give_feedback(uid):
 
     return render_template("form.html", title=talk_title, speakers=speakers) 
   elif request.method == 'POST': # POST request
+    name = ''
     guest_email = ''
     guest_social_media = ''
     questions = ''
     speaker_rating = request.form['speaker-ratings']
     content_rating = request.form['content-ratings']
     comment = request.form['talk-comment']
-    name = request.form['guest-name']
 
     # optional
+    name = request.form.get('guest-name')
     guest_email = request.form.get('guest-email')
     guest_social_media = request.form.get('guest-social-media')
     questions = request.form.get('questions')
