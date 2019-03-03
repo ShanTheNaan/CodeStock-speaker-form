@@ -13,7 +13,7 @@
         <title>Feedback Form</title>
     </head>
     
-    <body>
+    <body onload="onPageLoad()">
         <div class="title">
             <span class="container">
                 <img src="../images/cslogow.png">
@@ -21,7 +21,7 @@
         </div>
 
         <div class="row">
-            <form class="container" action="#" onsubmit="return formSubmit()">
+            <form class="container" action="#" onsubmit="return formSubmit()" method="POST">
                 <h1 class="form-title row" style="margin-top:1%;font-size: 2.5rem;" id="talk-title">A Journey through Creating and Consuming Custom NuGet Package</h1>
                 <h2 class="form-title row" style="margin-top:1%;font-size: 1.5rem;" id="talk-speakers">Chris Gardner</h2>
                 
