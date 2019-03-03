@@ -64,16 +64,17 @@ def upload_file():
 
 @app.route('/feedback/<int:uid>')
 def give_feedback(uid):
-  query = "SELECT bt.TalkId, tt.EventTitle, tt.EventLocation, tt.EventTime,\
-    st.FirstName, st.LastName FROM bridge_table bt INNER JOIN talk_table tt \
-    ON tt.TalkId = bt.TalkId INNER JOIN speaker_table st ON st.SpeakerId = bt.SpeakerId"
+  speakers = []
+  query = "SELECT bt.TalkId, tt.EventTitle, st.FirstName, st.LastName FROM \
+    bridge_table bt INNER JOIN talk_table tt ON tt.TalkId = bt.TalkId INNER JOIN \
+    speaker_table st ON st.SpeakerId = bt.SpeakerId WHERE bt.TalkId=" + str(uid)
 
   rows = mysql_obj.query_db(query)
+  talk_title = rows[0][1]
   for row in rows:
-    if row[0] == uid: break
+    speakers.append(row[-2] + ' ' + row[-1])
 
-  print(uid)
-  return render_template("form.html") 
+  return render_template("form.html", title=talk_title, speakers=speakers) 
 
 
 @app.route('/events')
