@@ -72,7 +72,8 @@ def give_feedback(uid):
   for row in rows:
     if row[0] == uid: break
 
-  return str(uid)
+  print(uid)
+  return render_template("form.html") 
 
 
 @app.route('/events')
@@ -84,8 +85,6 @@ def display_events():
   rows = mysql_obj.query_db(query)
   prev_uid = -1
   for row in rows:
-    print(row)
-    print(type(row[0]), type(prev_uid))
     if row[0] != prev_uid:
       talkStuff[row[0]] = [elem for elem in row[1:]]
       talkStuff[row[0]][-2] += ' ' + talkStuff[row[0]][-1]
@@ -100,18 +99,6 @@ def display_events():
 @app.route('/test')
 def test_db():
   mysql_obj.test_db()
-
-
-#
-#@app.route('post/<variable>', methods=['GET'])
-#def feedback_form(variable):
-#  pass
-
-
-
-
-def get_talks():
-  pass
 
 
 if __name__ == "__main__":
