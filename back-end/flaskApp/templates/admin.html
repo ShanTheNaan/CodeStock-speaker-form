@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">    
+
+    <link rel="stylesheet" href="../static/css/admin.css">
+    <script src="../static/js/admin.js"></script>
+</head>
+
+
+<body>
+    <div class="title">
+        <span class="container">
+            <img src="../static/images/cslogow.png">
+        </span>
+    </div>
+
+    <div class="row">
+        <div class="col s2 gray left-side">
+            <h3 class="admin"> Admin </h3>
+
+            <div class="collection">
+                <a href="#" id="upload" class="collection-item" onclick="setUploadFile()">Upload File</a>
+                <a href="#" id="events" class="collection-item">View Events</a>
+            </div>
+
+        </div>
+
+        <div class="col s10 content">
+            <div id="csv-div">
+                <h3 class="text-center csv-title">
+                    Please submit a CSV file
+                </h3>
+                <form method=post enctype=multipart/form-data>
+                  <p><input type=file name=file>
+                     <input type=submit value=Upload>
+                </form>
+             {% with messages = get_flashed_messages() %}
+               {% if messages %}
+                 <ul class="flashes">
+                    {% for message in messages %}
+                     <div class="message_flash">{{ message }}</div>
+                    {% endfor %}
+                </ul>
+              {% endif %}
+             {% endwith %}
+            {% block body %}
+            {% endblock %}
+                        </div>
+
+            <div id="events-div">
+                <h3 class="text-center">Your events</h3>
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+
+
+</html>

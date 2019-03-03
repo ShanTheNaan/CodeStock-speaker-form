@@ -1,4 +1,5 @@
-import os
+i
+port os
 from flask import Flask, render_template, request, redirect, url_for, flash, \
 send_from_directory
 from flaskext.mysql import MySQL
@@ -15,23 +16,20 @@ app.config['SESSION_TYPE'] = 'filesystem'
 
 @app.route("/")
 def main():
-  return "Hello, world!"
+  return render_template("index.html") 
+
 
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
-@app.route('/uploads/<filename>')
-def uploaded_file(filename):
-    return send_from_directory(app.config['UPLOAD_FOLDER'],
-                               filename)
-
 @app.route('/upload_success')
 def upload_successful():
   return render_template("upload_success.html")
 
-@app.route('/upload', methods=['GET', 'POST'])
+
+@app.route('/admin', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
         # check if the post request has the file part
@@ -51,8 +49,13 @@ def upload_file():
             return redirect("/upload_success")
         else:
             flash('Incorrect File Type: Excpected .csv')
-    return render_template("upload.html")
 
+    return render_template("admin.html")
+
+
+@app.route('/events')
+def display_events():
+  talks = get_talks()
 #
 #@app.route('post/<variable>', methods=['GET'])
 #def feedback_form(variable):
