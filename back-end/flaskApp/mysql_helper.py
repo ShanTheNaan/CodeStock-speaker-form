@@ -34,6 +34,9 @@ class MySQLHelper:
 
 
   def get_all_talks_for_user(self, uid):
+    """Use the uid of the user leaving the comment to pull all talks that the
+    user has left comments on.
+    """
     query = "SELECT bt.TalkId, tt.EventTitle, st.FirstName, st.LastName FROM \
       bridge_table bt INNER JOIN talk_table tt ON tt.TalkId = bt.TalkId INNER JOIN \
       speaker_table st ON st.SpeakerId = bt.SpeakerId WHERE bt.SpeakerId=" + str(uid)
@@ -41,6 +44,8 @@ class MySQLHelper:
     self.conn.query(query)  
     r = self.conn.store_result()
     rows = r.fetch_row(maxrows=0)
+
+    print(rows)
 
 
   def get_passwd(self):
