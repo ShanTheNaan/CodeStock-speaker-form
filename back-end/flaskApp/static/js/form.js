@@ -51,14 +51,6 @@ function formSubmit()
         }
     }
 
-    if(document.getElementById('drawing_checkbox').checked)
-    {
-        if(document.getElementById('guest-name').value == "")
-        {
-            complete = false;
-        }
-    }
-
     if(!complete)
     {
         window.alert('Please make sure all the required fields are filled out.');
