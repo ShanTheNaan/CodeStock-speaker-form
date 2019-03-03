@@ -97,9 +97,9 @@ def display_events():
   return jsonify(talkStuff)
 
 
-@app.route('/test')
-def test_db():
-  mysql_obj.test_db()
+@app.route('/qr')
+def return_qr():
+  return render_template("qrCode.html")
 
 
 if __name__ == "__main__":
