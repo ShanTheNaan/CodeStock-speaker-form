@@ -1,6 +1,8 @@
 import os
+import json
+import datetime
 from flask import Flask, render_template, request, redirect, url_for, flash, \
-send_from_directory
+send_from_directory, jsonify
 from flaskext.mysql import MySQL
 from werkzeug.utils import secure_filename
 import mysql_helper
@@ -62,7 +64,17 @@ def upload_file():
 
 @app.route('/events')
 def display_events():
-  talks = get_talks()
+  talkStuff = {}
+  query = "SELECT tt.TalkId, tt.EventTitle, tt.EventTime, tt.EventLocation, bt.SpeakerId, \
+    st.FirstName, st.LastName from talk_table tt Inner Join bridge_table bt ON tt.TalkId = \
+    bt.SpeakerId Inner Join speaker_table st ON bt.SpeakerId = st.SpeakerId" 
+  rows = mysql_obj.query_db(query)
+  for row in rows:
+    talkStuff[row[0]] = [elem for elem in row[1:]]
+    print(talkStuff[row[0]])
+    print(type(row))
+
+  return jsonify(talkStuff)
 
 
 @app.route('/test')
@@ -70,17 +82,6 @@ def test_db():
   mysql_obj.test_db()
 
 
-@app.route("/Authenticate")
-def Authenticate():
-    username = request.args.get('UserName')
-    password = request.args.get('Password')
-    cursor = mysql.connect().cursor()
-    cursor.execute("SELECT * from User where Username='" + username + "' and Password='" + password + "'")
-    data = cursor.fetchone()
-    if data is None:
-     return "Username or Password is wrong"
-    else:
-     return "Logged in successfully"
 #
 #@app.route('post/<variable>', methods=['GET'])
 #def feedback_form(variable):

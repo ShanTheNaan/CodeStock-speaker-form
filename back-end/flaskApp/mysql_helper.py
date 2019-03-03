@@ -1,4 +1,4 @@
-import sqlalchemy
+import MySQLdb
 
 class MySQLHelper:
   def __init__(self):
@@ -7,7 +7,8 @@ class MySQLHelper:
     self._host = 'hlr710vm.homelinux.com' 
     self._port = 3306
     self._db = 'cmawhinn_codestock'
-    self.conn = self.__connect_to_db()
+    self.conn = None
+    self.curse = self.__connect_to_db()
 
 
   def __set_passwd(self):
@@ -16,19 +17,20 @@ class MySQLHelper:
 
   
   def __connect_to_db(self):
-    engine = sqlalchemy.create_engine('mysql://' + self._username + ':' + 
-        self._passwd + '@' + self._host + ':' + repr(self._port) + '/' + self._db,
-        encoding='utf-8', echo=True)
+    print(self._passwd)
+    conn = MySQLdb.connect(host=self._host, port=self._port,
+        user=self._username, passwd=self._passwd, db=self._db)
 
-    return engine.connect()
-    
+    self.conn = conn
+    return conn.cursor()
 
-  def query_db(self):
-    query = select([cols.created_at,
-      cols.name]).order_by(cols.created_at).limit(1)
+  def query_db(self, query):
+    num_rows = self.curse.execute(query)
+    self.conn.query(query)
+    r = self.conn.store_result()
+    rows = r.fetch_row(maxrows=0)
 
-    for row in self.conn.execute(query):
-      print(row)
+    return rows
 
 
   def get_passwd(self):
