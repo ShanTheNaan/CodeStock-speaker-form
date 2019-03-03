@@ -46,6 +46,11 @@ class MySQLHelper:
     rows = r.fetch_row(maxrows=0)
 
     print(rows)
+    for talk in rows:
+      self.conn.query("SELECT * FROM comments_table WHERE TalkId=" + str(talk[0]))
+      r = self.conn.store_result()
+      talk_rows = r.fetch_row(maxrows=0)
+      print(talk_rows)
 
 
   def get_passwd(self):
