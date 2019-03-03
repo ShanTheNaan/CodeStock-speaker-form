@@ -8,7 +8,8 @@
 
         <!-- Compiled and minified JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
+        <script src="../javascript/form.js"></script>
+        
         <title>Feedback Form</title>
     </head>
     
@@ -20,48 +21,34 @@
         </div>
 
         <div class="row">
-            <form class="container" action="#">
+            <form class="container" action="#" onsubmit="return formSubmit()">
                 <h1 class="form-title row" style="margin-top:1%;font-size: 2.5rem;" id="talk-title">A Journey through Creating and Consuming Custom NuGet Package</h1>
                 <h2 class="form-title row" style="margin-top:1%;font-size: 1.5rem;" id="talk-speakers">Chris Gardner</h2>
-                <div class="row">
-                    <fieldset>
-                        <legend>Your information</legend>
-                        <div class="input-field col s6">
-                            <input id="guest_name" type="text" class="validate">
-                            <label for="guest_name">Your Name</label>
-                            <span class="helper-text">(Required to be entered in drawing)</span>
-                        </div> 
-                        <div class="input-field col s6">
-                            <input id="guest_email" type="text" class="validate">
-                            <label for="guest_email">Email</label>
-                            <span class="helper-text">(Optional)</span>
-                        </div>                        
-                    </fieldset>
-                </div>
+                
 
                 <div class="row top-margin-3">
                     <fieldset>
                         <Legend>Session review for speaker</Legend>
                         <label>
-                                <input class="with-gap" type="radio" id="speaker-rating-1" name="speaker-ratings" />
-                                <span>Poor</span>
-                            </label>
-                            <label>
-                                <input class="with-gap" type="radio" id="speaker-rating-2" name="speaker-ratings" />
-                                <span>Fair</span>
-                            </label>
-                            <label>
-                                <input class="with-gap" type="radio" id="speaker-rating-3" name="speaker-ratings" />
-                                <span>Neutral</span>
-                            </label>
-                            <label>
-                                <input class="with-gap" type="radio" id="speaker-rating-4" name="speaker-ratings" />
-                                <span>Good</span>
-                            </label>
-                            <label>
-                                <input class="with-gap" type="radio" id="speaker-rating-5" name="speaker-ratings" />
-                                <span>Exceptional</span>
-                            </label>                        
+                            <input class="with-gap" type="radio" id="speaker-rating-1" name="speaker-ratings" />
+                            <span>Poor</span>
+                        </label>
+                        <label>
+                            <input class="with-gap" type="radio" id="speaker-rating-2" name="speaker-ratings" />
+                            <span>Fair</span>
+                        </label>
+                        <label>
+                            <input class="with-gap" type="radio" id="speaker-rating-3" name="speaker-ratings" />
+                            <span>Neutral</span>
+                        </label>
+                        <label>
+                            <input class="with-gap" type="radio" id="speaker-rating-4" name="speaker-ratings" />
+                            <span>Good</span>
+                        </label>
+                        <label>
+                            <input class="with-gap" type="radio" id="speaker-rating-5" name="speaker-ratings" />
+                            <span>Exceptional</span>
+                        </label>                        
                     </fieldset>
                 </div>
 
@@ -96,17 +83,49 @@
                         <legend>Feedbacks/ comments</legend>
                         <div class="input-field col s12">
                             <textarea id="talk-comment" class="materialize-textarea" data-length="120"></textarea>
-                            <label for="talk-comment">(Please provide any feedback or comments to the speaker)</label>
+                            <label for="talk-comment">(Please provide any feedback or comment to the speaker)</label>
                         </div>
                     </fieldset>
                 </div>
 
-                <div class="row">
+                <p class="row">
+                    <label class="col s4">
+                        <input type="checkbox" class="filled-in" id="questions_checkbox" onclick="checkBoxClick()"/>
+                        <span>I have question(s) for the speaker</span>
+                    </label>
+                    <label class="col offset-s2 s4">
+                        <input type="checkbox" class="filled-in" id="drawing_checkbox" onclick="checkBoxClick()"/>
+                        <span>I want to enter the drawing</span>
+                    </label>
+                </p>
+
+                <div class="row" id="guest-info" style="display:block;">
                     <fieldset>
-                        <Legend class="question">Any questions to the speaker?</Legend>
+                        <legend>Your information</legend>
+                        <div class="input-field col s4" id="guest-name-div" style="display:block;">
+                            <input id="guest-name" type="text" class="validate" onchange=""/>
+                            <label for="guest-name">Your Name</label>
+                            <span class="helper-text">(Required to be entered in drawing)</span>
+                        </div> 
+                        <div class="input-field col s4" id="guest-email-div" style="display:none;">
+                            <input id="guest-email" type="text" class="validate" onchange=""/>
+                            <label for="guest-email">Email</label>
+                            <span class="helper-text">(Please provide either email or social media info)</span>
+                        </div>
+                        <div class="input-field col s4" id="guest-social-media-div" style="display:none;">
+                            <input id="guest-social-media" type="text" class="validate" onchange=""/>
+                            <label for="guest-social-media">Facebook/ Twitter</label>
+                            <span class="helper-text">(Please provide either email or social media info)</span>
+                        </div>                       
+                    </fieldset>
+                </div>
+
+                <div class="row" id="questions_asked" style="display:none;">
+                    <fieldset>
+                        <Legend>Questions for the speaker</Legend>
                         <div class="input-field col s12">
                             <textarea id="questions" class="materialize-textarea"></textarea>
-                            <label for="questions">(Put your questions here)</label>
+                            <label for="questions">(Write your questions here)</label>
                         </div>                        
                     </fieldset>
                 </div>

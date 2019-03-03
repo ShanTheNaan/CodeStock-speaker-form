@@ -1,19 +1,26 @@
-i
-port os
+import os
 from flask import Flask, render_template, request, redirect, url_for, flash, \
 send_from_directory
 from flaskext.mysql import MySQL
 from werkzeug.utils import secure_filename
+import mysql_helper
 
 mysql = MySQL()
+mysql_obj = mysql_helper.MySQLHelper()
 UPLOAD_FOLDER = 'upload'
 ALLOWED_EXTENSIONS = set(['csv'])
 
 app = Flask(__name__)
+
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['SESSION_TYPE'] = 'filesystem'
+app.config['MYSQL_DATABASE_USER'] = mysql_obj.get_username()
+app.config['MYSQL_DATABASE_PASSWORD'] = mysql_obj.get_passwd() 
+app.config['MYSQL_DATABASE_DB'] = mysql_obj.get_db()
+app.config['MYSQL_DATABASE_HOST'] = mysql_obj.get_host()
+mysql.init_app(app)
 
-
+print(app.config['MYSQL_DATABASE_PASSWORD'])
 @app.route("/")
 def main():
   return render_template("index.html") 
@@ -56,11 +63,34 @@ def upload_file():
 @app.route('/events')
 def display_events():
   talks = get_talks()
+
+
+@app.route('/test')
+def test_db():
+  mysql_obj.test_db()
+
+
+@app.route("/Authenticate")
+def Authenticate():
+    username = request.args.get('UserName')
+    password = request.args.get('Password')
+    cursor = mysql.connect().cursor()
+    cursor.execute("SELECT * from User where Username='" + username + "' and Password='" + password + "'")
+    data = cursor.fetchone()
+    if data is None:
+     return "Username or Password is wrong"
+    else:
+     return "Logged in successfully"
 #
 #@app.route('post/<variable>', methods=['GET'])
 #def feedback_form(variable):
 #  pass
 
+
+
+
+def get_talks():
+  pass
 
 
 if __name__ == "__main__":

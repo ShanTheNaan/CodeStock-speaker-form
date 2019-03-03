@@ -8,6 +8,7 @@
 
         <!-- Compiled and minified JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="../javascript/general_form.js"></script>
 
         <title>Feedback Form</title>
     </head>
@@ -20,7 +21,7 @@
         </div>
 
         <div class="row">
-            <form class="container" action="#">
+            <form class="container" action="#" onsubmit="return formSubmit()">
                 <h1 class="form-title row" style="margin-top:1%;font-size: 2.5rem;" id="talk-title">Please help us improve by answering these survey questions</h1>
                 
                 <div class="row top-margin-3">
@@ -68,7 +69,7 @@
                 </div>
                 
                 <div class="row right-align">
-                    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                    <button class="btn waves-effect waves-light" type="submit" name="action" >Submit
                         <i class="material-icons right">send</i>
                     </button>
                 </div>

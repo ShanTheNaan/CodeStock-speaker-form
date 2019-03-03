@@ -1,2 +1,5 @@
 #upload dir
 back-end/flaskApp/upload
+
+# don't upload password to github!
+back-end/flaskApp/password.txt
