@@ -10,6 +10,13 @@
      .text-center {
          text-align: center;
      }
+
+     .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 25%;
+    }
  </style>
 
 </head>
@@ -18,22 +25,25 @@
 
     <h1 id="title" class="text-center"> Title </h1>
     <h3 id="speaker" class="text-center"> Speaker </h3>
-    <h4 id="uid" class="text-center"> uid</h4>
+    <h4 id="loc" class="text-center"> Location </h4>
 
     <script>
         var url_string = window.location.href;
         var url = new URL(url_string);
         var uid = url.searchParams.get("uid");
         var title = url.searchParams.get("title");
+        var speaker = url.searchParams.get("speaker");
+        var loc = url.searchParams.get("location")
 
         document.getElementById ("title").innerText = title;
-        document.getElementById ("uid").innerText = uid;
+        document.getElementById ("loc").innerText = loc;
+        document.getElementById ("speaker").innerText = speaker;
         var img = document.createElement ("img");
         var newUrl = encodeURI ("localhost/"+uid);
         newUrl = encodeURI ("https://www.runescape.com/splash");
         console.log(newUrl);
         img.src = "https://api.qrserver.com/v1/create-qr-code/?data="+newUrl+"&amp;size=100x100";
-        img.classList.add ("text-center");
+        img.classList.add ("center");
         document.body.appendChild (img);
 
     </script>
