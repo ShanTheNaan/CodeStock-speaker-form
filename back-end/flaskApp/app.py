@@ -62,19 +62,21 @@ def upload_file():
     return render_template("admin.html")
 
 
-@app.route('/feedback/<int:uid>')
+@app.route('/feedback/<int:uid>', methods=['GET', 'POST'])
 def give_feedback(uid):
   speakers = []
   query = "SELECT bt.TalkId, tt.EventTitle, st.FirstName, st.LastName FROM \
     bridge_table bt INNER JOIN talk_table tt ON tt.TalkId = bt.TalkId INNER JOIN \
     speaker_table st ON st.SpeakerId = bt.SpeakerId WHERE bt.TalkId=" + str(uid)
 
-  rows = mysql_obj.query_db(query)
-  talk_title = rows[0][1]
-  for row in rows:
-    speakers.append(row[-2] + ' ' + row[-1])
+  if request.method == 'GET':
+    rows = mysql_obj.query_db(query)
+    talk_title = rows[0][1]
+    for row in rows:
+      speakers.append(row[-2] + ' ' + row[-1])
 
-  return render_template("form.html", title=talk_title, speakers=speakers) 
+    return render_template("form.html", title=talk_title, speakers=speakers) 
+  else: # POST request
 
 
 @app.route('/events')
