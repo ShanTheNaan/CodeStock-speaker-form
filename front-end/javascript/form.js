@@ -1,3 +1,8 @@
+function onPageLoad()
+{
+     
+}
+
 function checkBoxClick()
 {
     if(document.getElementById('questions_checkbox').checked)
@@ -11,10 +16,10 @@ function checkBoxClick()
     else
     {        
         document.getElementById('questions_asked').style.display = 'none';
-            document.getElementById('guest-info').style.display = 'block';
-            document.getElementById('guest-name-div').style.display = 'block';
-            document.getElementById('guest-email-div').style.display = 'none';
-            document.getElementById('guest-social-media-div').style.display = 'none';
+        document.getElementById('guest-info').style.display = 'block';
+        document.getElementById('guest-name-div').style.display = 'block';
+        document.getElementById('guest-email-div').style.display = 'none';
+        document.getElementById('guest-social-media-div').style.display = 'none';
     }
 }
 
@@ -84,6 +89,6 @@ function anyRadioBtnSelected(radioBtnName)
 
 function setTalkTitleAndSpeakers(title, speakers)
 {
-    document.getElementById('talk-title').value = title;
-    document.getElementById('talk-speakers').value = speakers;
+    document.getElementById('talk-title').innerText = title;
+    document.getElementById('talk-speakers').innerText = speakers;
 }
