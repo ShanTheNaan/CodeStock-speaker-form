@@ -81,3 +81,9 @@ function anyRadioBtnSelected(radioBtnName)
 
     return false;
 }
+
+function setTalkTitleAndSpeakers(title, speakers)
+{
+    document.getElementById('talk-title').value = title;
+    document.getElementById('talk-speakers').value = speakers;
+}
