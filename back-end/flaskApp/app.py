@@ -82,6 +82,7 @@ def give_feedback(uid):
 
     return render_template("form.html", title=talk_title, speakers=speakers) 
   elif request.method == 'POST': # POST request
+    mysql_obj.get_all_talks_for_user(uid)
     name = ''
     guest_email = ''
     guest_social_media = ''
@@ -95,6 +96,13 @@ def give_feedback(uid):
     guest_email = request.form.get('guest-email')
     guest_social_media = request.form.get('guest-social-media')
     questions = request.form.get('questions')
+
+    #print(name)
+
+    #query = "SELECT COUNT(*) FROM user_table WHERE UserName=" + str(name) + ""
+    #rows = mysql_obj.query_db(query)
+    #for row in rows:
+    #    print(row[0])
 
     return render_template("thanks.html")
   else:
