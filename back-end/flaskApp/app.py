@@ -77,6 +77,7 @@ def give_feedback(uid):
 
     return render_template("form.html", title=talk_title, speakers=speakers) 
   else: # POST request
+    return render_template("thanks.html")
 
 
 @app.route('/events')
