@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <!-- Compiled and minified CSS -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+ <!-- Compiled and minified JavaScript -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+ 
+ <style>
+     .text-center {
+         text-align: center;
+     }
+ </style>
+
+</head>
+
+<body>
+
+    <h1 id="title" class="text-center"> Title </h1>
+    <h3 id="speaker" class="text-center"> Speaker </h3>
+    <h4 id="uid" class="text-center"> uid</h4>
+
+    <script>
+        var url_string = window.location.href;
+        var url = new URL(url_string);
+        var uid = url.searchParams.get("uid");
+        var title = url.searchParams.get("title");
+
+        document.getElementById ("title").innerText = title;
+        document.getElementById ("uid").innerText = uid;
+        var img = document.createElement ("img");
+        var newUrl = encodeURI ("localhost/"+uid);
+        newUrl = encodeURI ("https://www.runescape.com/splash");
+        console.log(newUrl);
+        img.src = "https://api.qrserver.com/v1/create-qr-code/?data="+newUrl+"&amp;size=100x100";
+        img.classList.add ("text-center");
+        document.body.appendChild (img);
+
+    </script>
+
+</body>
+
+</html>
