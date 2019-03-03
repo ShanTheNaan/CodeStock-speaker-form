@@ -25,10 +25,16 @@
                 <h2 class="form-title row" style="margin-top:1%;font-size: 1.5rem;" id="talk-speakers">Chris Gardner</h2>
                 <div class="row">
                     <fieldset>
+                        <legend>Your information</legend>
                         <div class="input-field col s6">
                             <input id="guest_name" type="text" class="validate">
                             <label for="guest_name">Your Name</label>
-                            <span class="helper-text">Required to be entered in drawing</span>
+                            <span class="helper-text">(Required to be entered in drawing)</span>
+                        </div> 
+                        <div class="input-field col s6">
+                            <input id="guest_email" type="text" class="validate">
+                            <label for="guest_email">Email</label>
+                            <span class="helper-text">(Optional)</span>
                         </div>                        
                     </fieldset>
                 </div>
@@ -87,10 +93,21 @@
 
                 <div class="row top-margin-4">
                     <fieldset>
+                        <legend>Feedbacks/ comments</legend>
                         <div class="input-field col s12">
                             <textarea id="talk-comment" class="materialize-textarea" data-length="120"></textarea>
-                            <label for="talk-comment">Comment/ Feedback</label>
+                            <label for="talk-comment">(Please provide any feedback or comments to the speaker)</label>
                         </div>
+                    </fieldset>
+                </div>
+
+                <div class="row">
+                    <fieldset>
+                        <Legend class="question">Any questions to the speaker?</Legend>
+                        <div class="input-field col s12">
+                            <textarea id="questions" class="materialize-textarea"></textarea>
+                            <label for="questions">(Put your questions here)</label>
+                        </div>                        
                     </fieldset>
                 </div>
                 
