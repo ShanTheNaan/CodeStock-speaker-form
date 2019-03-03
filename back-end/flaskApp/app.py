@@ -82,6 +82,7 @@ def give_feedback(uid):
 
     return render_template("form.html", title=talk_title, speakers=speakers) 
   elif request.method == 'POST': # POST request
+    mysql_obj.get_all_talks_for_user(uid)
     name = ''
     guest_email = ''
     guest_social_media = ''
