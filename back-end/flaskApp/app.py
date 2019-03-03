@@ -96,6 +96,13 @@ def give_feedback(uid):
     guest_social_media = request.form.get('guest-social-media')
     questions = request.form.get('questions')
 
+    #print(name)
+
+    #query = "SELECT COUNT(*) FROM user_table WHERE UserName=" + str(name) + ""
+    #rows = mysql_obj.query_db(query)
+    #for row in rows:
+    #    print(row[0])
+
     return render_template("thanks.html")
   else:
     print('NO GET OR POST')
