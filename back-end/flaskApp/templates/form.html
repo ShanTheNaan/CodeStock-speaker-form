@@ -9,7 +9,7 @@
         <!-- Compiled and minified JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <script src="../static/js/form.js"></script>
-        
+      
         <title>Feedback Form</title>
     </head>
     
@@ -22,9 +22,10 @@
 
         <div class="row">
             <form class="container" action="#" onsubmit="return formSubmit()" method="POST">
-                <h1 class="form-title row" style="margin-top:1%;font-size: 2.5rem;" id="talk-title">A Journey through Creating and Consuming Custom NuGet Package</h1>
-                <h2 class="form-title row" style="margin-top:1%;font-size: 1.5rem;" id="talk-speakers">Chris Gardner</h2>
-                
+                <h1 class="form-title row" style="margin-top:1%;font-size: 2.5rem;" id="talk-title">{{ title }}</h1>
+                <h2 class="form-title row" style="margin-top:1%;font-size:
+                  1.5rem;" id="talk-speakers">{% for speaker in speakers %}
+                  {{ speaker }}{% if not loop.last %}, {% endif %} {% endfor %} </h2>
 
                 <div class="row top-margin-3">
                     <fieldset>
