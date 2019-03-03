@@ -1,9 +1,11 @@
 .title {
+    position: fixed;
     display: flex;
     background-color: rgb(66, 106, 159);
     width: 100vw;
     height: 12vh;
     align-items: center;
+    z-index: 2;
 }
 
 .user-title {
@@ -19,7 +21,10 @@
 }
 
 .left-side {
-    height: 100vh;
+    position: fixed;
+    height: 88vh;
+    margin-top: 12vh;
+    z-index: 1;
 }
 
 .row .col {
@@ -59,4 +64,12 @@
 
 #events-div {
     display: none;
+}
+
+.content {
+    margin-top: 12vh;
+}
+
+.card {
+    z-index: 0;
 }

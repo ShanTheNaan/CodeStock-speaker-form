@@ -1,6 +1,7 @@
 function setUploadFile() {
     var element = document.getElementById("csv-div");
     element.style.display = "block";
+    document.getElementById("events-div").style.display = "none";
     document.getElementById("upload").classList.add("active");
     document.getElementById("events").classList.remove("active");
 }
@@ -31,6 +32,7 @@ function createCard (title, speaker, location, time, uid) {
     var cardAction = document.createElement("div");
     var qrlink = document.createElement("a");
     var fform = document.createElement("a");
+    var feed = document.createElement ("a");
 
     outterDiv.className += "col s6 m4 offset-m1";
     card.className += "card";
@@ -41,12 +43,17 @@ function createCard (title, speaker, location, time, uid) {
     speak.innerHTML = speaker;
     loc.innerText = location;
     date.innerText = time;
-    qrlink.innerText = "QR-Code";
+    qrlink.innerText = "QR";
     qrlink.href = "qr?uid="+uid+"&title="+title+"&speaker="+speaker+"&location="+location;
-    fform.innerText = "Feedback Form";
+    fform.innerText = "Form";
+    fform.href = "feedback/"+uid;
+    feed.innerText = "Feedback";
+    feed.href = "";
+
 
     cardAction.appendChild (qrlink);
     cardAction.appendChild (fform);
+    cardAction.appendChild (feed);
     cardContent.appendChild (cardTitle);
     cardContent.appendChild (speak);
     cardContent.appendChild (loc);
