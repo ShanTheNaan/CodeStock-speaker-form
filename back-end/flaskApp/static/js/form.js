@@ -1,8 +1,3 @@
-function onPageLoad()
-{
-     
-}
-
 function checkBoxClick()
 {
     if(document.getElementById('questions_checkbox').checked)
@@ -51,14 +46,6 @@ function formSubmit()
             complete = false;
         }
         else if((document.getElementById('guest-email').value == "") && (document.getElementById('guest-social-media').value == ""))
-        {
-            complete = false;
-        }
-    }
-
-    if(document.getElementById('drawing_checkbox').checked)
-    {
-        if(document.getElementById('guest-name').value == "")
         {
             complete = false;
         }
