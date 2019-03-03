@@ -1,0 +1,46 @@
+textarea.materialize-textarea
+{
+    height: 6rem;
+}
+
+textarea
+{
+    width: 500px;
+    height: 150px;
+}
+
+fieldset
+{
+    /*border: 0;*/
+}
+
+.title
+{
+    display: flex;
+    background-color: rgb(66, 106, 159);
+    width: 100vw;
+    height: 12vh;
+    align-items: center;
+}
+
+.name-text
+{
+    margin: 0%;
+    padding: 0%;
+    border: 0%;
+}
+
+.top-margin-2
+{
+    margin-top: 2%;
+}
+
+.top-margin-3
+{
+    margin-top: 3%;
+}
+
+.top-margin-4
+{
+    margin-top: 4%;
+}

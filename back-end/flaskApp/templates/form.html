@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="../css/form.css">
+
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+        <title>Feedback Form</title>
+    </head>
+    
+    <body>
+        <div class="title">
+            <span class="container">
+                <img src="../static/images/cslogow.png">
+            </span>
+        </div>
+
+        <div class="row">
+            <form class="container" action="#">
+                <h1 class="form-title row" style="margin-top:1%;font-size: 2.5rem;" id="talk-title">A Journey through Creating and Consuming Custom NuGet Package</h1>
+                <h2 class="form-title row" style="margin-top:1%;font-size: 1.5rem;" id="talk-speakers">Chris Gardner</h2>
+                <div class="row">
+                    <fieldset>
+                        <div class="input-field col s6">
+                            <input id="guest_name" type="text" class="validate">
+                            <label for="guest_name">Your Name</label>
+                            <span class="helper-text">Required to be entered in drawing</span>
+                        </div>                        
+                    </fieldset>
+                </div>
+
+                <div class="row top-margin-3">
+                    <fieldset>
+                        <Legend>Session review for speaker</Legend>
+                        <label>
+                                <input class="with-gap" type="radio" id="speaker-rating-1" name="speaker-ratings" />
+                                <span>Poor</span>
+                            </label>
+                            <label>
+                                <input class="with-gap" type="radio" id="speaker-rating-2" name="speaker-ratings" />
+                                <span>Fair</span>
+                            </label>
+                            <label>
+                                <input class="with-gap" type="radio" id="speaker-rating-3" name="speaker-ratings" />
+                                <span>Neutral</span>
+                            </label>
+                            <label>
+                                <input class="with-gap" type="radio" id="speaker-rating-4" name="speaker-ratings" />
+                                <span>Good</span>
+                            </label>
+                            <label>
+                                <input class="with-gap" type="radio" id="speaker-rating-5" name="speaker-ratings" />
+                                <span>Exceptional</span>
+                            </label>                        
+                    </fieldset>
+                </div>
+
+                <div class="row top-margin-3">
+                    <fieldset>
+                        <legend>Session review for content</legend>
+                        <label>
+                            <input class="with-gap" type="radio" id="content-rating-1" name="content-ratings" />
+                            <span>Poor</span>
+                        </label>
+                        <label>
+                            <input class="with-gap" type="radio" id="content-rating-2" name="content-ratings" />
+                            <span>Fair</span>
+                        </label>
+                        <label>
+                            <input class="with-gap" type="radio" id="content-rating-3" name="content-ratings" />
+                            <span>Neutral</span>
+                        </label>
+                        <label>
+                            <input class="with-gap" type="radio" id="content-rating-4" name="content-ratings" />
+                            <span>Good</span>
+                        </label>
+                        <label>
+                            <input class="with-gap" type="radio" id="content-rating-5" name="content-ratings" />
+                            <span>Exceptional</span>
+                        </label>
+                    </fieldset>
+                </div>
+
+                <div class="row top-margin-4">
+                    <fieldset>
+                        <div class="input-field col s12">
+                            <textarea id="talk-comment" class="materialize-textarea" data-length="120"></textarea>
+                            <label for="talk-comment">Comment/ Feedback</label>
+                        </div>
+                    </fieldset>
+                </div>
+                
+                <div class="row right-align">
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
