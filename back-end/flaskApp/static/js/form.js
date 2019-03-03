@@ -1,8 +1,3 @@
-function onPageLoad()
-{
-     
-}
-
 function checkBoxClick()
 {
     if(document.getElementById('questions_checkbox').checked)
