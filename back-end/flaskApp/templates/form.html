@@ -83,7 +83,7 @@
                     <fieldset>
                         <legend>Feedbacks/ comments</legend>
                         <div class="input-field col s12">
-                            <textarea id="talk-comment" class="materialize-textarea" data-length="120"></textarea>
+                            <textarea id="talk-comment" name="talk-comment" class="materialize-textarea" data-length="120"></textarea>
                             <label for="talk-comment">(Please provide any feedback or comment to the speaker)</label>
                         </div>
                     </fieldset>
@@ -100,17 +100,17 @@
                     <fieldset>
                         <legend>Your information</legend>
                         <div class="input-field col s4" id="guest-name-div" style="display:block;">
-                            <input id="guest-name" type="text" class="validate" onchange=""/>
+                            <input id="guest-name" name="guest-name" type="text" class="validate" onchange=""/>
                             <label for="guest-name">Your Name</label>
                             <span class="helper-text">(Required to be entered in drawing)</span>
                         </div> 
                         <div class="input-field col s4" id="guest-email-div" style="display:none;">
-                            <input id="guest-email" type="text" class="validate" onchange=""/>
+                            <input id="guest-email" name="guest-email" type="text" class="validate" onchange=""/>
                             <label for="guest-email">Email</label>
                             <span class="helper-text">(Please provide either email or social media info)</span>
                         </div>
                         <div class="input-field col s4" id="guest-social-media-div" style="display:none;">
-                            <input id="guest-social-media" type="text" class="validate" onchange=""/>
+                            <input id="guest-social-media" name="guest-social-media" type="text" class="validate" onchange=""/>
                             <label for="guest-social-media">Facebook/ Twitter</label>
                             <span class="helper-text">(Please provide either email or social media info)</span>
                         </div>                       
@@ -121,7 +121,7 @@
                     <fieldset>
                         <Legend>Questions for the speaker</Legend>
                         <div class="input-field col s12">
-                            <textarea id="questions" class="materialize-textarea"></textarea>
+                            <textarea id="questions" name="questions" class="materialize-textarea"></textarea>
                             <label for="questions">(Write your questions here)</label>
                         </div>                        
                     </fieldset>
