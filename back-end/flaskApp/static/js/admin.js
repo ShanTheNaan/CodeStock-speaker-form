@@ -18,10 +18,6 @@ function displayEvents() {
     document.getElementById("events-div").style.display = "block";
     document.getElementById("events").classList.add("active");
     document.getElementById("upload").classList.remove("active");
-
-    createCard("na lcs lit", "mike mee", "my house", "any", "123");
-    createCard("lck sux", "nick bruh", "korea", "never", "093");
-    createCard("LEC lit", "rando lando", "neverland", "12:12", "10294");
 }
 
 function createCard (title, speaker, location, time, uid) {
@@ -46,7 +42,7 @@ function createCard (title, speaker, location, time, uid) {
     loc.innerText = location;
     date.innerText = time;
     qrlink.innerText = "QR-Code";
-    qrlink.href = "qrCode.html?uid="+uid+"&title="+title+"&speaker="+speaker+"&location="+location;
+    qrlink.href = "qr?uid="+uid+"&title="+title+"&speaker="+speaker+"&location="+location;
     fform.innerText = "Feedback Form";
 
     cardAction.appendChild (qrlink);
@@ -61,4 +57,43 @@ function createCard (title, speaker, location, time, uid) {
 
     document.getElementById("events-div").appendChild(outterDiv);
 }
+
+var getJSON = function(url) {
+    var data = null;
+
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = true;
+
+    xhr.addEventListener("readystatechange", function () {
+    if (this.readyState === 4) {
+        var json = this.responseText;
+    
+        json = JSON.parse(json);
+        console.log(json);
+
+        for (var uid in json){
+            console.log(uid);
+            console.log(json[uid]);
+            let title = json[uid][0];
+            let loc = json[uid][1];
+            let date = json[uid][2];
+            let speaker = json[uid][3];
+
+            createCard (title, speaker, loc, date, uid);
+
+            // createCard("na lcs lit", "mike mee", "my house", "any", "123");
+            // createCard("lck sux", "nick bruh", "korea", "never", "093");
+            // createCard("LEC lit", "rando lando", "neverland", "12:12", "10294");
+        }
+    }
+    });
+
+    xhr.open("GET", url);
+    xhr.setRequestHeader("Cache-Control", "no-cache");
+    xhr.setRequestHeader("Postman-Token", "f929304d-328e-4c92-a0e1-12c49f2824b6");
+
+    xhr.send(data);
+}
+
+getJSON("http://localhost:5000/events");
 

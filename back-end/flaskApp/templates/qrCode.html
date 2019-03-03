@@ -39,8 +39,7 @@
         document.getElementById ("loc").innerText = loc;
         document.getElementById ("speaker").innerText = speaker;
         var img = document.createElement ("img");
-        var newUrl = encodeURI ("localhost/"+uid);
-        newUrl = encodeURI ("https://www.runescape.com/splash");
+        var newUrl = encodeURI ("http://hlr710vm.homelinux.com:5000/feedback/"+uid);
         console.log(newUrl);
         img.src = "https://api.qrserver.com/v1/create-qr-code/?data="+newUrl+"&amp;size=100x100";
         img.classList.add ("center");
