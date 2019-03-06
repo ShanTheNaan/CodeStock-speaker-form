@@ -1,3 +1,4 @@
+import sys
 import MySQLdb
 
 class MySQLHelper:
@@ -15,6 +16,24 @@ class MySQLHelper:
     with open('password.txt', 'r') as fp:
       return fp.readline().strip('\n')
 
+  def get_passwd(self):
+    return self._passwd
+
+
+  def get_username(self):
+    return self._username
+
+
+  def get_host(self):
+    return self._host
+
+
+  def get_port(self):
+    return self._port
+
+
+  def get_db(self): 
+    return self._db
   
   def __connect_to_db(self):
     print(self._passwd)
@@ -23,6 +42,32 @@ class MySQLHelper:
 
     self.conn = conn
     return conn.cursor()
+
+
+  def __populate_db(self, csv_filename):
+    with open(csv_filename, newline='') as csvfile:
+      talks = csv.reader(csvfile, delimiter=',', quotechar='|')
+      for row in talks: 
+        if len(row) < 6: 
+          #TODO need to gracefully handle failure
+          print('Malformed CSV file')
+          sys.exit(1)
+        talk_name = row[0]
+        talk_date = row[1]
+        talk_locn = row[2]
+        talk_desc = row[3]
+        speakers_first = row[4::2]
+        speakers_last  = row[5::2]
+
+        #TODO: Error check -- is this needed? Map will default to inserting
+        #'None' in the case where the lists aren't the same size
+        if len(speakers_first) != len(speakers_last):
+          pass
+        for idx, f_name in enumerate(speakers_first):
+          #TODO: create query string to enter into db
+          pass
+
+
 
   def query_db(self, query):
     num_rows = self.curse.execute(query)
@@ -49,22 +94,3 @@ class MySQLHelper:
       talk_rows = r.fetch_row(maxrows=0)
       print(talk_rows)
 
-
-  def get_passwd(self):
-    return self._passwd
-
-
-  def get_username(self):
-    return self._username
-
-
-  def get_host(self):
-    return self._host
-
-
-  def get_port(self):
-    return self._port
-
-
-  def get_db(self): 
-    return self._db
