@@ -1,7 +1,7 @@
-#upload dir
+# Ignore file uploads
 back-end/flaskApp/upload
 
-# don't upload password to github!
+# Don't upload password to github!
 back-end/flaskApp/password.txt
 
 # ignore bytecode
@@ -9,3 +9,6 @@ __pycache__/
 
 # Sphinx documentation
 docs/_build/
+
+# ignore tests
+tests/

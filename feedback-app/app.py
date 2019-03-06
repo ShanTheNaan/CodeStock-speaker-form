@@ -5,7 +5,7 @@ from flask import Flask, render_template, request, redirect, url_for, flash, \
 send_from_directory, jsonify
 from flaskext.mysql import MySQL
 from werkzeug.utils import secure_filename
-import mysql_helper
+from util import mysql_helper
 
 mysql = MySQL()
 mysql_obj = mysql_helper.MySQLHelper()
