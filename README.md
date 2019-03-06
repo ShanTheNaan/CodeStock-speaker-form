@@ -64,4 +64,4 @@ This project is licensed under the 3-Clause BSD License - see the
 ## Acknowledgments
 
 * We'd like to thank those that made KnxHx possible, as that allowed us the
-* opportunity to propose a solution to this need by the CodeStock organizers.
+opportunity to create a solution to this need by the CodeStock organizers.
