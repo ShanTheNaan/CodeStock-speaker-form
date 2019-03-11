@@ -17,7 +17,8 @@ user perspectives.
 
 Admins will need a hosting environment capable of serving the anticipated
 traffic to the site during the conference. They will also, in addition to the
-python package requirements, will need a MySQL database. 
+python package requirements, will need a MySQL database. The necessary steps to 
+install MySQL dependencies are shown in the Installing section
 
 ### Prerequisites -- End Users
 
@@ -26,10 +27,20 @@ useful feedback so that their conference can be improved year-over-year.
 
 ### Installing
 
-Lorem ipsum
-
+On Ubuntu, install the following before installing the Python3 dependencies:
 ```
-Code Example
+sudo apt install python3-dev
+```
+```
+sudo apt install libmysqlclient-dev 
+```
+```
+sudo apt install gcc
+```
+
+Then install python dependencies as normal with:
+```
+pip install -r requirements.txt
 ```
 
 ### Initialize Database
